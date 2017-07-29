@@ -80,6 +80,34 @@ int main(){
     cin >> h;
     int m;
     cin >> m;
+
+    if (m==0)
+    {
+        converter(h);
+        cout<<"o' clock"<<endl;
+    }
+    else if (m<=20)
+    {
+        converter(m);
+        if (m==1)
+            cout << "minute past ";
+        else
+            cout << ((m==15)?"past ":"minutes past ");
+        converter (h);
+        cout<<endl;
+    }
+    else if (m<=30)
+    {
+        int tens=m-(m%10);
+        int ones=m%10;
+        converter(tens);
+        if (ones)
+            converter(ones);
+        cout << ((m==30)?"past ":"minutes past ");
+        converter (h);
+        cout<<endl;
+    }
+
     return 0;
 }
 
