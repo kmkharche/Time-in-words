@@ -107,6 +107,29 @@ int main(){
         converter (h);
         cout<<endl;
     }
+    else if (m<40)
+    {
+        m=60-m;
+        int tens=m-(m%10);
+        int ones=m%10;
+        converter(tens);
+        if (ones)
+            converter(ones);
+        cout << ((m==30)?"to ":"minutes to ");
+        converter ((h==12)?1:h+1);
+        cout<<endl;
+    }
+    else if (m<60)
+    {
+        m=60-m;
+        converter(m);
+        if (m==1)
+            cout<< "minute to";
+        else
+            cout << ((m==15)?"to ":"minutes to ");
+        converter ((h==12)?1:h+1);
+        cout<<endl;
+    }
 
     return 0;
 }
